@@ -5,7 +5,7 @@ import logging
 from pathlib import Path
 
 # Logging is configured in pytest.ini, so we don't need to set it up here.
-DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
 
 def load_payload():
     """Load test product data from JSON file."""
