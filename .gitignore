@@ -1,1 +1,4 @@
-venv
+venv/
+tests/other_modules/__pycache__
+tests/Users/__pycache__/
+__pycache__/
