@@ -23,10 +23,11 @@ def log_request_response(method, url, req_body, response):
     except Exception:
         logging.info(f"RESPONSE TEXT: {response.text}")
 
-payload = load_payload()
-url = "https://fakestoreapi.com/users"
-response = requests.post(url, json=payload)
-log_request_response("POST", url, payload, response)
-assert response.status_code in (200, 201)
-data = response.json()
-assert data.get("id") in (1, 11)
+def test_post():
+    payload = load_payload()
+    url = "https://fakestoreapi.com/users"
+    response = requests.post(url, json=payload)
+    log_request_response("POST", url, payload, response)
+    assert response.status_code in (200, 201)
+    data = response.json()
+    assert data.get("id") in (1, 11)

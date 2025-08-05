@@ -18,10 +18,11 @@ def log_request_response(method, url, req_body, response):
     except Exception:
         logging.info(f"RESPONSE TEXT: {response.text}")
 
-url = "https://fakestoreapi.com/users/1"
-response = requests.get(url)
-log_request_response("GET", url, None, response)
-assert response.status_code in (200, 201)
-data = response.json()
-assert data.get("id") == 1
-assert data.get("username") == "johnd"
+def test_get():
+    url = "https://fakestoreapi.com/users/1"
+    response = requests.get(url)
+    log_request_response("GET", url, None, response)
+    assert response.status_code in (200, 201)
+    data = response.json()
+    assert data.get("id") == 1
+    assert data.get("username") == "johnd"

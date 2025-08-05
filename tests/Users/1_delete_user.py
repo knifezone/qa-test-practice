@@ -18,9 +18,11 @@ def log_request_response(method, url, req_body, response):
     except Exception:
         logging.info(f"RESPONSE TEXT: {response.text}")
 
-url = "https://fakestoreapi.com/users/1"
-response = requests.delete(url)
-log_request_response("DELETE", url, None, response)
-assert response.status_code in (200, 201)
-data = response.json()
-assert data.get("id") == 1
+
+def test_delete():
+    url = "https://fakestoreapi.com/users/1"
+    response = requests.delete(url)
+    log_request_response("DELETE", url, None, response)
+    assert response.status_code in (200, 201)
+    data = response.json()
+    assert data.get("id") == 1

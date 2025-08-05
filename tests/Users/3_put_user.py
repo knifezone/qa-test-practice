@@ -23,11 +23,12 @@ def log_request_response(method, url, req_body, response):
     except Exception:
         logging.info(f"RESPONSE TEXT: {response.text}")
 
-payload = load_payload()
-url = "https://fakestoreapi.com/users/10"
-response = requests.put(url, json=payload)
-print(response.json())
-log_request_response("PUT", url, payload, response)
-assert response.status_code in (200, 201)
-data = response.json()
-assert data.get("username") == payload["username"]
+def test_put():
+    payload = load_payload()
+    url = "https://fakestoreapi.com/users/10"
+    response = requests.put(url, json=payload)
+    print(response.json())
+    log_request_response("PUT", url, payload, response)
+    assert response.status_code in (200, 201)
+    data = response.json()
+    assert data.get("username") == payload["username"]
